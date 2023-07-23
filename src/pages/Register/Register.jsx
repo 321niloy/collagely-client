@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import Lottie from 'react-lottie';
 import loter from './../../relog.json'
 import './register.css'
-import { Form } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { Authcontext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 // photo
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
@@ -69,39 +70,38 @@ else if(password !== ConfirmPassword){
       
     if(imageres.success){
     const imgurl = imageres.data.display_url;
-    alert("for testing now",imgurl,name)
 
 // ----==================-Create email------------===
-          createusers(email,password)
-         .then(result=>{
-           const createuser = result.user;
-           console.log("signup createuser",createuser)
-           alert("signup alert")
-           setsuccess('succesfully Signup')
-           
-         // updateUserProfile=======
-         
-           updateUserProfile(name,imgurl)
-                      .then(() => {
-                         console.log('Profile updated successfully');
-                         // ... Rest of your code
-                       })
-                       .catch((error) => {
-                         console.log('Error updating profile:', error);
-                         // ... Rest of your code
-                       });
-         
-                       // ==========updateUserProfile end
-         
-         
-               form.reset()
-               })
-         
-          .catch(error =>{
-          console.log(error)
-          seterror(error.massage)
-           })
-          // ----------------------
+createusers(email,password)
+.then(result=>{
+  const createuser = result.user;
+  console.log("signup createuser",createuser)
+  Swal.fire('Register SuccessFully')
+  setsuccess('succesfully Signup')
+  
+// updateUserProfile=======
+
+  updateUserProfile(name,imgurl)
+             .then(() => {
+                console.log('Profile updated successfully');
+                // ... Rest of your code
+              })
+              .catch((error) => {
+                console.log('Error updating profile:', error);
+                // ... Rest of your code
+              });
+
+              // ==========updateUserProfile end
+
+
+      form.reset()
+      })
+
+ .catch(error =>{
+ console.log(error)
+ seterror(error.massage)
+  })
+          // email end ----------------------
         }
       })  // ================ end photo
   
@@ -160,7 +160,7 @@ else if(password !== ConfirmPassword){
 
 
         <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <Link to='/reset' className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
           <p className='text-green-700 text-xs'>{success}</p>
           <p className='text-red-700   text-xs '>{error}</p>
@@ -195,3 +195,5 @@ else if(password !== ConfirmPassword){
 };
 
 export default Register;
+
+

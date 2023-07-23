@@ -10,6 +10,10 @@ import Mycollages from '../pages/Mycollages';
 import Fourzerofour from '../pages/Fourzerofour';
 import Register from '../pages/Register/Register';
 import Login from '../pages/Login/Login';
+import HomeViewDetails from '../pages/HomeViewDetails';
+import CollageViewDetails from '../pages/CollageViewDetails';
+import SubmissionPages from '../pages/SubmissionPages';
+import Resetpassword from '../pages/Resetpassword';
 
 
  export const router = createBrowserRouter([
@@ -40,6 +44,25 @@ import Login from '../pages/Login/Login';
         {
           path:'login',
           element:<Login></Login>
+        },
+        {
+          path:'homecollageview/:id',
+          element:<HomeViewDetails></HomeViewDetails>,
+          loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
+        },
+        {
+          path:'collageview/:id',
+          element:<CollageViewDetails></CollageViewDetails>,
+          loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
+        },
+        {
+          path:'forsubmition/:id',
+          element:<SubmissionPages></SubmissionPages>,
+          loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
+        },
+        {
+          path:'reset',
+          element:<Resetpassword></Resetpassword>
         }
       ]
     },

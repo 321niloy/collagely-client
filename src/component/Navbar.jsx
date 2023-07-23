@@ -29,7 +29,7 @@ const Navbar = () => {
         
       </ul>
     </div>
-    <a className=" text-2xl">Collagely</a>
+    <Link to='/' className=" text-2xl">Collagely</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -51,9 +51,9 @@ const Navbar = () => {
     </div>
     }
     {
-      user?<span onClick={logoutbutton}  className='p-3 rounded bg-slate-400 hover:bg-white hover:font-serif hover:font-bold text-white font-bold hover:text-black'>Log Out</span>:<Link to='/login' className='btn bg-slate-400 hover:bg-white hover:font-serif hover:font-bold text-white font-bold hover:text-black'>Login</Link>
+      user?<span onClick={logoutbutton}  className='p-3 rounded bg-sky-500 hover:bg-white hover:font-serif hover:font-bold text-white font-bold hover:text-black'>Log Out</span>:<Link to='/login' className='btn bg-sky-500 hover:bg-white hover:font-serif hover:font-bold text-white font-bold hover:text-black'>Login</Link>
     }
-    <Link to='/register' className='btn bg-slate-400 hover:bg-white hover:font-serif hover:font-bold text-white font-bold hover:text-black'>Register</Link>
+    <Link to='/register' className='btn bg-sky-500 hover:bg-white hover:font-serif hover:font-bold text-white font-bold hover:text-black'>Register</Link>
   </div>
 </div>
         </div>
