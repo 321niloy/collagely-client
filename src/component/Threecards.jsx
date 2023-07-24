@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Threecards = () => {
     const {collages} = useContext(CollageContext)
-    console.log('kk',collages)
+    // console.log('kk',collages)
 
     
 
