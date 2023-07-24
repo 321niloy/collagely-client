@@ -6,7 +6,7 @@ const Threecards = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:8000/collages`)
+    fetch(`https://collagely-server.vercel.app/collages`)
       .then((response) => response.json())
       .then((data) => {
         console.log({ data });

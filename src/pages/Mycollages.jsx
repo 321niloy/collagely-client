@@ -48,7 +48,7 @@ const Mycollages = () => {
       };
 
  
-      fetch(`http://localhost:8000/reviews`,{
+      fetch(`https://collagely-server.vercel.app/reviews`,{
         method: "POST", 
   headers: {
     "Content-Type": "application/json",

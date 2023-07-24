@@ -4,7 +4,7 @@ const useCard = () => {
     const { data: collegeCards = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['collages'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:8000/collages');
+            const res = await fetch('https://collagely-server.vercel.app/collages');
             return res.json();
         }
     })

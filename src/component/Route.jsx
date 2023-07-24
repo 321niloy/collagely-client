@@ -50,23 +50,23 @@ import Directupdatepage from '../pages/Directupdatepage';
         {
           path:'homecollageview/:id',
           element:<HomeViewDetails></HomeViewDetails>,
-          loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
+          loader:({params}) =>  fetch(`https://collagely-server.vercel.app/collages/${params.id}`)
         },
         {
           path:'collageview/:id',
           element:<CollageViewDetails></CollageViewDetails>,
-          loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
+          loader:({params}) =>  fetch(`https://collagely-server.vercel.app/collages/${params.id}`)
         },
         {
           path:'forsubmition/:id',
           element:<SubmissionPages></SubmissionPages>,
-          loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
+          loader:({params}) =>  fetch(`https://collagely-server.vercel.app/collages/${params.id}`)
         },
         ,
         {
           path:'/updateown/:id',
           element:<Directupdatepage></Directupdatepage>,
-          loader:({params}) =>  fetch(`http://localhost:8000/submission/${params.id}`)
+          loader:({params}) =>  fetch(`https://collagely-server.vercel.app/submission/${params.id}`)
         },
         {
           path:'reset',
