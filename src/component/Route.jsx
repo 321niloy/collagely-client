@@ -14,6 +14,8 @@ import HomeViewDetails from '../pages/HomeViewDetails';
 import CollageViewDetails from '../pages/CollageViewDetails';
 import SubmissionPages from '../pages/SubmissionPages';
 import Resetpassword from '../pages/Resetpassword';
+import Owndata from '../pages/Owndata';
+import Directupdatepage from '../pages/Directupdatepage';
 
 
  export const router = createBrowserRouter([
@@ -60,9 +62,19 @@ import Resetpassword from '../pages/Resetpassword';
           element:<SubmissionPages></SubmissionPages>,
           loader:({params}) =>  fetch(`http://localhost:8000/collages/${params.id}`)
         },
+        ,
+        {
+          path:'/updateown/:id',
+          element:<Directupdatepage></Directupdatepage>,
+          loader:({params}) =>  fetch(`http://localhost:8000/submission/${params.id}`)
+        },
         {
           path:'reset',
           element:<Resetpassword></Resetpassword>
+        },
+        {
+          path:'own',
+          element:<Owndata></Owndata>
         }
       ]
     },

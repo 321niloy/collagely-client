@@ -1,10 +1,11 @@
 import React, { useContext, useRef, useState } from 'react';
 import Lottie from 'react-lottie';
 import loter from '../../relog.json'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 
 import google from '../../../public/Image/GOOGLE.png'
 import { Authcontext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 
@@ -14,9 +15,13 @@ const Login = () => {
   const[error,seterror]=useState('')
   const{signin,googleSignIn}=useContext(Authcontext)
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+
+
   const forLogin = event =>{
-
-
 
     event.preventDefault()
     const form = event.target
@@ -28,6 +33,12 @@ const Login = () => {
     .then(result =>{
       const loguser = result.user
       console.log(loguser)
+      Swal.fire(
+        'Login Successful!',
+        'You clicked the button!',
+        'success'
+      );
+      navigate(from, { replace: true });
       setsuccess('Login Successful')
     })
     .catch(error=>{

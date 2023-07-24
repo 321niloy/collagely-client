@@ -3,6 +3,7 @@ import { Form, useLoaderData } from 'react-router-dom';
 import Axios from '../component/Axios';
 import { Authcontext } from '../context/AuthProvider';
 import Swal from 'sweetalert2';
+import Privateroute from '../component/private/Privateroute';
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
 
@@ -123,7 +124,9 @@ const allData = {
                     <input   id="image-input" type="file" className="file-input file-input-bordered w-full focus:bg-slate-300 text-black"  accept="image/*" />
                 </div>
         <div className="form-control mt-6">
-          <input className='bg-sky-500 p-3 rounded-2xl' type="submit" value="Submit" />
+          {
+            user?<input className='bg-sky-500 p-3 rounded-2xl' type="submit" value="Submit" />:<><h1 className='text-red-500 mb-2'>At Frist Login and Then Submit it</h1><input disabled className='bg-stone-500 p-3 rounded-2xl text-white flex justify-center disabled' type="submit" value="Submit" /></>
+          }
         </div>
       </div>
     </Form>
